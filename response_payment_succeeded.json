@@ -1,0 +1,191 @@
+{
+  "version": "0",
+  "id": "189b6b36-4de6-513d-0dac-e0946e692fc5",
+  "detail-type": "invoice.payment_succeeded",
+  "source": "aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy",
+  "account": "565428532910",
+  "time": "2025-05-25T16:21:40Z",
+  "region": "ap-southeast-1",
+  "resources": [
+    "arn:aws:events:ap-southeast-1::event-source/aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy"
+  ],
+  "detail": {
+    "id": "evt_1RShIu2esPqFiBdrOvVnyZ1L",
+    "object": "event",
+    "api_version": "2025-04-30.basil",
+    "created": 1748190098,
+    "data": {
+      "object": {
+        "id": "in_1RShIs2esPqFiBdrTx42zwh9",
+        "object": "invoice",
+        "account_country": "MY",
+        "account_name": "development",
+        "account_tax_ids": null,
+        "amount_due": 120000,
+        "amount_overpaid": 0,
+        "amount_paid": 120000,
+        "amount_remaining": 0,
+        "amount_shipping": 0,
+        "application": null,
+        "attempt_count": 0,
+        "attempted": true,
+        "auto_advance": false,
+        "automatic_tax": {
+          "disabled_reason": null,
+          "enabled": false,
+          "liability": null,
+          "provider": null,
+          "status": null
+        },
+        "automatically_finalizes_at": null,
+        "billing_reason": "subscription_create",
+        "collection_method": "charge_automatically",
+        "created": 1748190096,
+        "currency": "myr",
+        "custom_fields": null,
+        "customer": "cus_SNSDtIBsrwkZEF",
+        "customer_address": {
+          "city": null,
+          "country": "MY",
+          "line1": null,
+          "line2": null,
+          "postal_code": null,
+          "state": null
+        },
+        "customer_email": "wuxiaoxiong@gmail.com",
+        "customer_name": "WU XIAO XIONG",
+        "customer_phone": "+601234343434",
+        "customer_shipping": null,
+        "customer_tax_exempt": "none",
+        "customer_tax_ids": [],
+        "default_payment_method": null,
+        "default_source": null,
+        "default_tax_rates": [],
+        "description": null,
+        "discounts": [],
+        "due_date": null,
+        "effective_at": 1748190096,
+        "ending_balance": 0,
+        "footer": null,
+        "from_invoice": null,
+        "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1ROhRq2esPqFiBdr/test_YWNjdF8xUk9oUnEyZXNQcUZpQmRyLF9TTlNEbmN2QktBYXd1aFFxR1RWNFdXZ0tLd2ZyeGEzLDEzODczMDkwMA0200h2ezIdoJ?s=ap",
+        "invoice_pdf": "https://pay.stripe.com/invoice/acct_1ROhRq2esPqFiBdr/test_YWNjdF8xUk9oUnEyZXNQcUZpQmRyLF9TTlNEbmN2QktBYXd1aFFxR1RWNFdXZ0tLd2ZyeGEzLDEzODczMDkwMA0200h2ezIdoJ/pdf?s=ap",
+        "issuer": {
+          "type": "self"
+        },
+        "last_finalization_error": null,
+        "latest_revision": null,
+        "lines": {
+          "object": "list",
+          "data": [
+            {
+              "id": "il_1RShIq2esPqFiBdrCBOtgOLh",
+              "object": "line_item",
+              "amount": 120000,
+              "currency": "myr",
+              "description": "1 × Malay Training (at RM1,200.00 / month)",
+              "discount_amounts": [],
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1RShIs2esPqFiBdrTx42zwh9",
+              "livemode": false,
+              "metadata": {},
+              "parent": {
+                "invoice_item_details": null,
+                "subscription_item_details": {
+                  "invoice_item": null,
+                  "proration": false,
+                  "proration_details": {
+                    "credited_items": null
+                  },
+                  "subscription": "sub_1RShIs2esPqFiBdr8MP0KaVN",
+                  "subscription_item": "si_SNSDibz23Br4Sl"
+                },
+                "type": "subscription_item_details"
+              },
+              "period": {
+                "end": 1750868496,
+                "start": 1748190096
+              },
+              "pretax_credit_amounts": [],
+              "pricing": {
+                "price_details": {
+                  "price": "price_1ROhVU2esPqFiBdr1O7k7NjF",
+                  "product": "prod_SJK9cqkm1BaKEs"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "120000"
+              },
+              "quantity": 1,
+              "taxes": []
+            }
+          ],
+          "has_more": false,
+          "total_count": 1,
+          "url": "/v1/invoices/in_1RShIs2esPqFiBdrTx42zwh9/lines"
+        },
+        "livemode": false,
+        "metadata": {},
+        "next_payment_attempt": null,
+        "number": "NGYBFEFP-0001",
+        "on_behalf_of": null,
+        "parent": {
+          "quote_details": null,
+          "subscription_details": {
+            "metadata": {},
+            "subscription": "sub_1RShIs2esPqFiBdr8MP0KaVN"
+          },
+          "type": "subscription_details"
+        },
+        "payment_settings": {
+          "default_mandate": null,
+          "payment_method_options": {
+            "acss_debit": null,
+            "bancontact": null,
+            "card": {
+              "request_three_d_secure": "automatic"
+            },
+            "customer_balance": null,
+            "konbini": null,
+            "sepa_debit": null,
+            "us_bank_account": null
+          },
+          "payment_method_types": null
+        },
+        "period_end": 1748190096,
+        "period_start": 1748190096,
+        "post_payment_credit_notes_amount": 0,
+        "pre_payment_credit_notes_amount": 0,
+        "receipt_number": null,
+        "rendering": null,
+        "shipping_cost": null,
+        "shipping_details": null,
+        "starting_balance": 0,
+        "statement_descriptor": null,
+        "status": "paid",
+        "status_transitions": {
+          "finalized_at": 1748190096,
+          "marked_uncollectible_at": null,
+          "paid_at": 1748190097,
+          "voided_at": null
+        },
+        "subtotal": 120000,
+        "subtotal_excluding_tax": 120000,
+        "test_clock": null,
+        "total": 120000,
+        "total_discount_amounts": [],
+        "total_excluding_tax": 120000,
+        "total_pretax_credit_amounts": [],
+        "total_taxes": [],
+        "webhooks_delivered_at": 1748190096
+      }
+    },
+    "livemode": false,
+    "pending_webhooks": 0,
+    "request": {
+      "id": null,
+      "idempotency_key": "3464f6d0-328d-4347-a2ee-9eedcdf6980a"
+    },
+    "type": "invoice.payment_succeeded"
+  }
+}

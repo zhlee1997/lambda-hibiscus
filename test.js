@@ -1,0 +1,147 @@
+import { handler } from "./index.js";
+
+const testEvent = {
+  version: "0",
+  id: "cb67910f-7e50-d2ac-8e38-5d7fbcfce90f",
+  "detail-type": "checkout.session.completed",
+  source:
+    "aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy",
+  account: "565428532910",
+  time: "2025-05-24T13:57:20Z",
+  region: "ap-southeast-1",
+  resources: [
+    "arn:aws:events:ap-southeast-1::event-source/aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy",
+  ],
+  detail: {
+    id: "evt_1RSIZg2esPqFiBdrjADgiiOs",
+    object: "event",
+    api_version: "2025-04-30.basil",
+    created: 1748095040,
+    data: {
+      object: {
+        id: "cs_test_a1XkvBZodahOyStH7xRTjg5nURuIEZez5Rz4QFT592DBOD6CGp5ovbL66S",
+        object: "checkout.session",
+        adaptive_pricing: {
+          enabled: true,
+        },
+        after_expiration: null,
+        allow_promotion_codes: null,
+        amount_subtotal: 3000,
+        amount_total: 3000,
+        automatic_tax: {
+          enabled: false,
+          liability: null,
+          provider: null,
+          status: null,
+        },
+        billing_address_collection: null,
+        cancel_url: "https://httpbin.org/post",
+        client_reference_id: null,
+        client_secret: null,
+        collected_information: {
+          shipping_details: null,
+        },
+        consent: null,
+        consent_collection: null,
+        created: 1748095037,
+        currency: "usd",
+        currency_conversion: null,
+        custom_fields: [],
+        custom_text: {
+          after_submit: null,
+          shipping_address: null,
+          submit: null,
+          terms_of_service_acceptance: null,
+        },
+        customer: "cus_SN2eeveXTtvWAK",
+        customer_creation: "always",
+        customer_details: {
+          address: {
+            city: "South San Francisco",
+            country: "US",
+            line1: "354 Oyster Point Blvd",
+            line2: null,
+            postal_code: "94080",
+            state: "CA",
+          },
+          email: "stripe1@example.com",
+          name: "Jenny Rosen",
+          phone: null,
+          tax_exempt: "none",
+          tax_ids: [],
+        },
+        customer_email: null,
+        discounts: [],
+        expires_at: 1748181437,
+        invoice: null,
+        invoice_creation: {
+          enabled: false,
+          invoice_data: {
+            account_tax_ids: null,
+            custom_fields: null,
+            description: null,
+            footer: null,
+            issuer: null,
+            metadata: {},
+            rendering_options: null,
+          },
+        },
+        livemode: false,
+        locale: null,
+        metadata: {},
+        mode: "payment",
+        payment_intent: "pi_3RSIZd2esPqFiBdr1NHeRszZ",
+        payment_link: null,
+        payment_method_collection: "always",
+        payment_method_configuration_details: {
+          id: "pmc_1ROhSN2esPqFiBdrqqDmgWha",
+          parent: null,
+        },
+        payment_method_options: {
+          card: {
+            request_three_d_secure: "automatic",
+          },
+        },
+        payment_method_types: ["card", "link"],
+        payment_status: "paid",
+        permissions: null,
+        phone_number_collection: {
+          enabled: false,
+        },
+        recovered_from: null,
+        saved_payment_method_options: {
+          allow_redisplay_filters: ["always"],
+          payment_method_remove: "disabled",
+          payment_method_save: null,
+        },
+        setup_intent: null,
+        shipping_address_collection: null,
+        shipping_options: [],
+        status: "complete",
+        submit_type: null,
+        subscription: "sub_123",
+        success_url: "https://httpbin.org/post",
+        total_details: {
+          amount_discount: 0,
+          amount_shipping: 0,
+          amount_tax: 0,
+        },
+        ui_mode: "hosted",
+        url: null,
+        wallet_options: null,
+        shipping_cost: null,
+      },
+    },
+    livemode: false,
+    pending_webhooks: 0,
+    request: {
+      id: null,
+      idempotency_key: null,
+    },
+    type: "checkout.session.completed",
+  },
+};
+
+handler(testEvent)
+  .then((res) => console.log("Success:", res))
+  .catch((err) => console.error("Error:", err));

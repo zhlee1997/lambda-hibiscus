@@ -1,0 +1,139 @@
+{
+  "version": "0",
+  "id": "cc992e30-6f3f-f3b0-e231-cdf72b8946ac",
+  "detail-type": "charge.succeeded",
+  "source": "aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy",
+  "account": "565428532910",
+  "time": "2025-06-01T17:28:31Z",
+  "region": "ap-southeast-1",
+  "resources": [
+    "arn:aws:events:ap-southeast-1::event-source/aws.partner/stripe.com/ed_test_61SZP2Hgh9M3FGcDl16SY5PCBlKWTVhi2bZoBE5WyRqy"
+  ],
+  "detail": {
+    "id": "evt_3RVFgO2esPqFiBdr1MJbYdaT",
+    "object": "event",
+    "api_version": "2025-04-30.basil",
+    "created": 1748798909,
+    "data": {
+      "object": {
+        "id": "ch_3RVFgO2esPqFiBdr1oKUhJy5",
+        "object": "charge",
+        "amount": 120000,
+        "amount_captured": 120000,
+        "amount_refunded": 0,
+        "application": null,
+        "application_fee": null,
+        "application_fee_amount": null,
+        "balance_transaction": "txn_3RVFgO2esPqFiBdr1Ek4MqZ7",
+        "billing_details": {
+          "address": {
+            "city": null,
+            "country": "MY",
+            "line1": null,
+            "line2": null,
+            "postal_code": null,
+            "state": null
+          },
+          "email": "donlee@gmail.com",
+          "name": "Don Lee",
+          "phone": null,
+          "tax_id": null
+        },
+        "calculated_statement_descriptor": "DEVELOPMENT",
+        "captured": true,
+        "created": 1748798909,
+        "currency": "myr",
+        "customer": "cus_SQ5sn0ul2AiNGm",
+        "description": "Subscription creation",
+        "destination": null,
+        "dispute": null,
+        "disputed": false,
+        "failure_balance_transaction": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "livemode": false,
+        "metadata": {},
+        "on_behalf_of": null,
+        "order": null,
+        "outcome": {
+          "advice_code": null,
+          "network_advice_code": null,
+          "network_decline_code": null,
+          "network_status": "approved_by_network",
+          "reason": null,
+          "risk_level": "normal",
+          "risk_score": 41,
+          "seller_message": "Payment complete.",
+          "type": "authorized"
+        },
+        "paid": true,
+        "payment_intent": "pi_3RVFgO2esPqFiBdr1nNdLkyK",
+        "payment_method": "pm_1RVFgN2esPqFiBdr3TZaoaqG",
+        "payment_method_details": {
+          "card": {
+            "amount_authorized": 120000,
+            "authorization_code": null,
+            "brand": "visa",
+            "checks": {
+              "address_line1_check": null,
+              "address_postal_code_check": null,
+              "cvc_check": "pass"
+            },
+            "country": "US",
+            "exp_month": 12,
+            "exp_year": 2034,
+            "extended_authorization": {
+              "status": "disabled"
+            },
+            "fingerprint": "9aBv90YnZIU237TD",
+            "funding": "credit",
+            "incremental_authorization": {
+              "status": "unavailable"
+            },
+            "installments": null,
+            "last4": "4242",
+            "mandate": null,
+            "multicapture": {
+              "status": "unavailable"
+            },
+            "network": "visa",
+            "network_token": {
+              "used": false
+            },
+            "network_transaction_id": "579766118574889",
+            "overcapture": {
+              "maximum_amount_capturable": 120000,
+              "status": "unavailable"
+            },
+            "regulated_status": "unregulated",
+            "three_d_secure": null,
+            "wallet": null
+          },
+          "type": "card"
+        },
+        "radar_options": {},
+        "receipt_email": null,
+        "receipt_number": null,
+        "receipt_url": "https://pay.stripe.com/receipts/invoices/CAcaFwoVYWNjdF8xUk9oUnEyZXNQcUZpQmRyKL-b8sEGMgbLDBkC-0Q6LBYGpEVxkWI1ZTmYMpMxVk9C9iWoU7-oi43UidiConQYogCJCt99e-lBPbh6?s=ap",
+        "refunded": false,
+        "review": null,
+        "shipping": null,
+        "source": null,
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "statement_descriptor_suffix": null,
+        "status": "succeeded",
+        "transfer_data": null,
+        "transfer_group": null
+      }
+    },
+    "livemode": false,
+    "pending_webhooks": 0,
+    "request": {
+      "id": null,
+      "idempotency_key": "7382d3f9-413d-4de1-a53d-e39450d80d43"
+    },
+    "type": "charge.succeeded"
+  }
+}
