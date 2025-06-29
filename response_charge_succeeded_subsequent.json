@@ -1,0 +1,138 @@
+{
+  "version": "0",
+  "id": "54fa31db-297d-f771-9197-496fe28fe4bb",
+  "detail-type": "charge.succeeded",
+  "source": "aws.partner/stripe.com/ed_61SgjzzTdQf53Vd8F16SfEAUI9KWeHgMsHnvihAPA5GS",
+  "account": "359453785567",
+  "time": "2025-06-09T12:16:07Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:events:us-east-1::event-source/aws.partner/stripe.com/ed_61SgjzzTdQf53Vd8F16SfEAUI9KWeHgMsHnvihAPA5GS"
+  ],
+  "detail": {
+    "id": "evt_3RY4cSFT7XVYWcJ40hvjQHeb",
+    "object": "event",
+    "api_version": "2025-05-28.basil",
+    "created": 1749471367,
+    "data": {
+      "object": {
+        "id": "ch_3RY4cSFT7XVYWcJ40Jwg4bQH",
+        "object": "charge",
+        "amount": 200,
+        "amount_captured": 200,
+        "amount_refunded": 0,
+        "application": null,
+        "application_fee": null,
+        "application_fee_amount": null,
+        "balance_transaction": "txn_3RY4cSFT7XVYWcJ40ph3FSRU",
+        "billing_details": {
+          "address": {
+            "city": null,
+            "country": "MY",
+            "line1": null,
+            "line2": null,
+            "postal_code": null,
+            "state": null
+          },
+          "email": "leezonghan@live.com",
+          "name": "Lee Zong Han",
+          "phone": null,
+          "tax_id": null
+        },
+        "calculated_statement_descriptor": "HIBISCUS CULTURAL NETW",
+        "captured": true,
+        "created": 1749471365,
+        "currency": "myr",
+        "customer": "cus_SScQwZzqii7UDq",
+        "description": "Subscription update",
+        "destination": null,
+        "dispute": null,
+        "disputed": false,
+        "failure_balance_transaction": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "livemode": true,
+        "metadata": {},
+        "on_behalf_of": null,
+        "order": null,
+        "outcome": {
+          "advice_code": null,
+          "network_advice_code": null,
+          "network_decline_code": null,
+          "network_status": "approved_by_network",
+          "reason": null,
+          "risk_level": "normal",
+          "seller_message": "Payment complete.",
+          "type": "authorized"
+        },
+        "paid": true,
+        "payment_intent": "pi_3RY4cSFT7XVYWcJ40tR4gqek",
+        "payment_method": "pm_1RXhBwFT7XVYWcJ4soFYY9ZS",
+        "payment_method_details": {
+          "card": {
+            "amount_authorized": 200,
+            "authorization_code": "004856",
+            "brand": "visa",
+            "checks": {
+              "address_line1_check": null,
+              "address_postal_code_check": null,
+              "cvc_check": null
+            },
+            "country": "MY",
+            "exp_month": 11,
+            "exp_year": 2026,
+            "extended_authorization": {
+              "status": "disabled"
+            },
+            "fingerprint": "LPIAOv6I5eWENdqX",
+            "funding": "credit",
+            "incremental_authorization": {
+              "status": "unavailable"
+            },
+            "installments": null,
+            "last4": "4444",
+            "mandate": null,
+            "multicapture": {
+              "status": "unavailable"
+            },
+            "network": "visa",
+            "network_token": {
+              "used": true
+            },
+            "network_transaction_id": "305160441660806",
+            "overcapture": {
+              "maximum_amount_capturable": 200,
+              "status": "unavailable"
+            },
+            "regulated_status": "unregulated",
+            "three_d_secure": null,
+            "wallet": null
+          },
+          "type": "card"
+        },
+        "radar_options": {},
+        "receipt_email": "leezonghan@live.com",
+        "receipt_number": null,
+        "receipt_url": "https://pay.stripe.com/receipts/invoices/CAcQARoXChVhY2N0XzFSVnFEOEZUN1hWWVdjSjQoh6GbwgYyBvKxAiwPvzosFhy1yu-oRZXYb23-xSM_fQizcPW8cS3kHf41bqdZiMSvI76n8fkvB0Kh04k?s=ap",
+        "refunded": false,
+        "review": null,
+        "shipping": null,
+        "source": null,
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "statement_descriptor_suffix": null,
+        "status": "succeeded",
+        "transfer_data": null,
+        "transfer_group": null
+      }
+    },
+    "livemode": true,
+    "pending_webhooks": 0,
+    "request": {
+      "id": null,
+      "idempotency_key": "in_1RY3ftFT7XVYWcJ4E12ZSULd-initial_attempt-0f88396ab5b51800d"
+    },
+    "type": "charge.succeeded"
+  }
+}

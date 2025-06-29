@@ -113,8 +113,25 @@ exports.handler = async (event) => {
         internalUserId = result.insertId; // Get the auto-incremented user ID
         console.log(`✅ Created new user with id ${internalUserId}`);
       } else {
-        // Existing user found, get their internal user_id
+        // Use the existing user's internal user_id
+        // And set the internalUserId to the existing user's id
         internalUserId = rows[0].id;
+
+        // Existing user found, get their internal user_id
+        // And update the stripe_customer_id and stripe_subscription_id
+        console.log(`User found for email ${stripeCustomerEmail}`);
+        const updateUserQuery = `
+          UPDATE users
+          SET stripe_customer_id = ?, stripe_subscription_id = ?
+          WHERE id = ?
+        `;
+
+        await connection.execute(updateUserQuery, [
+          stripeCustomerId,
+          subscriptionId,
+          internalUserId, // Use the existing user's internal user_id
+        ]);
+        console.log(`✅ Updated existing user with id ${internalUserId}`);
       }
 
       // Step 2: Insert transaction
@@ -167,11 +184,81 @@ exports.handler = async (event) => {
     const amount = charge.amount / 100; // Stripe uses cents
     const currency = charge.currency || "usd";
     const cardBrand = charge.payment_method_details?.card?.brand || null;
+    const cardType = charge.payment_method_details?.type || null;
     const cardLast4 = charge.payment_method_details?.card?.last4 || null;
     const cardExpMonth = charge.payment_method_details?.card?.exp_month || null;
     const cardExpYear = charge.payment_method_details?.card?.exp_year || null;
     const status = charge.status || "succeeded"; // Default to succeeded if not provided
     const stripeCreatedAt = new Date(charge.created * 1000);
+
+    // If it's a charge.succeeded event and description is Subscription update
+    // then we execcute the insert transaction query
+    if (
+      charge.description &&
+      charge.description.includes("Subscription update")
+    ) {
+      // TODO: Extract subscription ID and invoice ID
+      // let subscriptionId = null;
+      let subscriptionId = "subscriptionId";
+      // let stripeInvoiceId = null;
+      let stripeInvoiceId = "stripeInvoiceId";
+      let invoicePdfUrl = null;
+
+      let internalUserId;
+      const stripeCustomerEmail = charge.billing_details?.email || null;
+
+      const connection = await mysql.createConnection({
+        host: DB_HOST,
+        user: DB_USER,
+        password: DB_PASSWORD,
+        database: DB_NAME,
+      });
+
+      // Get internal user_id (BIGINT) by email
+      const [rows] = await connection.execute(
+        `SELECT id FROM users WHERE email = ?`,
+        [stripeCustomerEmail]
+      );
+
+      // Existing user found, get their internal user_id
+      internalUserId = rows[0].id;
+
+      const insertQuery = `
+      INSERT INTO transactions (
+        user_id,
+        stripe_customer_id,
+        stripe_subscription_id,
+        stripe_invoice_id,
+        stripe_payment_intent_id,
+        amount,
+        currency,
+        status,
+        receipt_url,
+        invoice_pdf_url,
+        stripe_created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+      await connection.execute(insertQuery, [
+        internalUserId,
+        stripeCustomerId,
+        subscriptionId,
+        stripeInvoiceId,
+        stripePaymentIntentId,
+        amount,
+        currency,
+        status,
+        receiptUrl,
+        invoicePdfUrl,
+        stripeCreatedAt,
+      ]);
+
+      await connection.end();
+
+      console.log(
+        "Charge succeeded for subscription update, proceeding to charge receipt insertion."
+      );
+    }
 
     const insertQuery = `
       INSERT INTO charge_receipts (
@@ -205,7 +292,7 @@ exports.handler = async (event) => {
         receiptUrl,
         amount,
         currency,
-        cardBrand,
+        !cardBrand ? cardType : cardBrand, // Use cardType if cardBrand is not available
         cardLast4,
         cardExpMonth,
         cardExpYear,
